@@ -81,7 +81,7 @@ namespace videostore.Models
 
         public void RentMovie()
         {
-            System.Console.WriteLine("Enter the number of the book that you'd like to check out: ");
+            System.Console.WriteLine("Enter the number of the movie that you'd like to check out: ");
             ViewMovies(AvailableMovies);
             Movie movieToRent = ValidateUserInput(AvailableMovies);
             if(movieToRent == null) return;
@@ -92,7 +92,7 @@ namespace videostore.Models
         }
         public void ReturnMovie()
         {   
-            System.Console.WriteLine("Enter the number of the book you would like to return: ");
+            System.Console.WriteLine("Enter the number of the movie you would like to return: ");
             ViewMovies(RentedMovies);
             Movie movieToReturn = ValidateUserInput(RentedMovies);
             //null check to prevent breaking errors

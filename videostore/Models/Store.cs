@@ -42,6 +42,7 @@ namespace videostore.Models
             {
                 System.Console.WriteLine("{0}. {1} - {2}\n {3} \nStarring: ", count, movie.Title, movie.ReleaseYear, movie.Plot);
                 DisplayActors(movie.Actors);
+                System.Console.WriteLine();
                 count ++;
             }
         }
@@ -88,15 +89,20 @@ namespace videostore.Models
         }
 
         public void RentMovie()
-        {
-            System.Console.WriteLine("Enter the number of the movie that you'd like to check out: ");
-            ViewMovies(AvailableMovies);
-            Movie movieToRent = ValidateUserInput(AvailableMovies);
-            if(movieToRent == null) return;
-            movieToRent.Available = false;
-            AvailableMovies.Remove(movieToRent);
-            RentedMovies.Add(movieToRent);
-            System.Console.WriteLine("We hope that you enjoy {0}", movieToRent.Title);
+        {   
+            if(RentedMovies.Count == 2){
+                System.Console.WriteLine("You are only allowed to rent 2 movies at a time, please return one before renting another");
+            } else
+            {
+                System.Console.WriteLine("Enter the number of the movie that you'd like to check out: ");
+                ViewMovies(AvailableMovies);
+                Movie movieToRent = ValidateUserInput(AvailableMovies);
+                if(movieToRent == null) return;
+                movieToRent.Available = false;
+                AvailableMovies.Remove(movieToRent);
+                RentedMovies.Add(movieToRent);
+                System.Console.WriteLine("We hope that you enjoy {0}", movieToRent.Title);
+            }
         }
         public void ReturnMovie()
         {   

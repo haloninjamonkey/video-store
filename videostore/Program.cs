@@ -1,5 +1,6 @@
 ﻿using System;
 using videostore.Models;
+namespace videostore
 /***
 =================================================================================
 |      ___  __         __    ___           __            _   ___    __          |
@@ -31,7 +32,6 @@ Actors // This is List of type Actor
 Actor
 Name
  */
-namespace videostore
 {
     class Program
     {
@@ -59,6 +59,10 @@ namespace videostore
             JL.Actors.Add(Mustache);
             JL.Actors.Add(GalG);
             duckyVideo.AddMovie(JL);
+            Movie JW = new Movie("John Wick", "An ex-hit-man comes out of retirement to track down the gangsters that killed his dog and took everything from him.", 2014, true);
+            Actor KR = new Actor("Keanu Reeves");
+            JW.Actors.Add(KR);
+            duckyVideo.AddMovie(JW);
             bool inStore = true;
             duckyVideo.Greeting();
             while(inStore) 

@@ -5,14 +5,15 @@ namespace videostore.Models
 {
     class Store
     {
-        /**Name
-        Address
-        AvailableMovies This is List of type Movie
-        RentedMoviesThis is List of type Movie
-        */
+        //Name
         public string Name {get; private set;}
+        //Address
         public string Address { get; private set; } 
+
+        //AvailableMovies This is List of type Movie
         public List<Movie> AvailableMovies { get; set; }
+        
+        //RentedMoviesThis is List of type Movie
         public List<Movie> RentedMovies { get; set; }
 
         public Store(string name, string address )
@@ -39,8 +40,15 @@ namespace videostore.Models
             int count = 1;
             foreach (Movie movie in movies)
             {
-                System.Console.WriteLine("{0}. {1} - {2} {3}\n {4}", count, movie.Title, movie.ReleaseYear, movie.Actors, movie.Plot);
+                System.Console.WriteLine("{0}. {1} - {2}\n {3} \nStarring: ", count, movie.Title, movie.ReleaseYear, movie.Plot);
+                DisplayActors(movie.Actors);
                 count ++;
+            }
+        }
+        public void DisplayActors(List<Actor> actors)
+        {
+            foreach(Actor actor in actors){
+                System.Console.WriteLine(actor.Name);
             }
         }
 
@@ -117,6 +125,7 @@ namespace videostore.Models
             }
             return movies[movieNum - 1];
         }
+
 
         public void Greeting()
         {

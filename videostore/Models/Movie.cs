@@ -20,7 +20,9 @@ namespace videostore.Models
             Title = title;
             Plot = plot;
             ReleaseYear = releaseyear;
+            Actors = new List<Actor>();
             Available = available;
+
         }
     }
 }               

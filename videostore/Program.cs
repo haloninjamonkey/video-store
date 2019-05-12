@@ -38,6 +38,18 @@ namespace videostore
         {
             Console.Clear();
             Store duckyVideo = new Store("Ducky Video", "123 Main St");
+            Movie Avengers = new Movie ("Avengers", "Earth's mightiest heroes must come together and learn to fight as a team \n if they are going to stop the mischievous Loki and his alien army from enslaving humanity.", 2012, true);
+            Actor RDJ = new Actor("Robert Downey Jr");
+            Actor ChrisE = new Actor("Chris Evans");
+            Actor ChrisH = new Actor("Chris Hemsworth");
+            Avengers.Actors.Add(RDJ);
+            Avengers.Actors.Add(ChrisE);
+            Avengers.Actors.Add(ChrisH);
+            duckyVideo.AddMovie(Avengers);
+            Movie Hook = new Movie ("Hook", "When Captain Hook kidnaps his children, an adult Peter Pan must return to Neverland \n and reclaim his youthful spirit in order to challenge his old enemy.", 1991, true);
+            Actor RobinW = new Actor("Robin Williams");
+            Hook.Actors.Add(RobinW);
+            duckyVideo.AddMovie(Hook);
             bool inStore = true;
             duckyVideo.Greeting();
             while(inStore) 
